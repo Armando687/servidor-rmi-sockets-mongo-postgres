@@ -25,16 +25,13 @@ public class ConexionMongo {
     public ConexionMongo() {
         try {
             Mongo mongo = new Mongo("localhost",27017);
-            BaseDatos = mongo.getDB("ToDo");
-            coleccion = BaseDatos.getCollection("ToDo");
+            BaseDatos = mongo.getDB("sistemaFacturas");
+            coleccion = BaseDatos.getCollection("Elapas");
             System.out.println("Coneccion a base de datos exitosa");
         } catch (UnknownHostException ex) {
             Logger.getLogger(ConexionMongo.class.getName()).log(Level.SEVERE,null,ex);
         }
     }
-    
-    
-    
 }
 
 

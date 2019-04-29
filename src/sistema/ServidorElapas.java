@@ -6,9 +6,10 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import sistema.conexion.ConexionMongo;
 
 public class ServidorElapas {
-    
+    public static ConexionMongo conexionMongo = new ConexionMongo();
     public static void main(String[] args) {
         int port = 5001; // puerto en el que escuchara el socket
         String Respuesta="";
@@ -16,6 +17,8 @@ public class ServidorElapas {
         {
             ServerSocket server = new ServerSocket(port); //instanciamos un servidor socket
             System.out.println("El servidor esta listo\n");
+//            Respuesta = Respuesta + conexionMongo.mostrar();
+//            System.out.println(Respuesta);
             Socket client;
             BufferedReader fromClient;  // buffer de lectura
             PrintStream toClient;       // stream para escritura
@@ -31,14 +34,7 @@ public class ServidorElapas {
                     
                     if (comando.equals("fac")) {
                         Integer idcliente  = Integer.parseInt(cadena.substring(4));
-                        if (idcliente==1)
-                        {
-                            Respuesta="2256-36,3216-26,4547-44";
-                        }
-                        if (idcliente==2)
-                        {
-                            Respuesta="1354-25,3252-17";
-                        }
+                        Respuesta = Respuesta + conexionMongo.mostrar(idcliente);
                         }
                     if (comando.equals("pag")) {
                             Respuesta="SI";

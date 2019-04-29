@@ -34,6 +34,14 @@ public class ServidorElapas {
                     
                     if (comando.equals("fac")) {
                         Integer idcliente  = Integer.parseInt(cadena.substring(4));
+//                        if (idcliente==1)
+//                        {
+//                            Respuesta="2256-36,3216-26,4547-44";
+//                        }
+//                        if (idcliente==2)
+//                        {
+//                            Respuesta="1354-25,3252-17";
+//                        }
                         Respuesta = Respuesta + conexionMongo.mostrar(idcliente);
                         }
                     if (comando.equals("pag")) {

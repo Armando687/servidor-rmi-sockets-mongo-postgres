@@ -16,7 +16,7 @@ public class ClienteBanco{
             Scanner entradaEscaner = new Scanner (System.in); //Creación de un objeto Scanner
             idcliente = entradaEscaner.nextInt(); //Invocamos un método sobre un objeto Scanner
 	    System.out.println("------------Facturas Pendientes -----------");
-	    Factura [] pendientes=operaciones.calcular(idcliente);
+	    Factura [] pendientes = operaciones.calcular(idcliente);
             for(Factura f:pendientes)
             { System.out.print(f.getEmpresa()+"   ");
             System.out.print(f.getIdFactura()+"   ");

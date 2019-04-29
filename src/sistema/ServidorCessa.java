@@ -3,8 +3,6 @@ package sistema;
 import java.rmi.*;
 import java.rmi.registry.*;
 import java.rmi.server.*;
-import java.sql.ResultSet;
-import sistema.conexion.ConexionPostgresql;
 
 
 public class ServidorCessa 
@@ -17,14 +15,7 @@ public class ServidorCessa
     }
     
     public Factura[] pedientes(int idcliente) throws RemoteException {
-        
-        Factura[] aux ;
-        
-        ConexionPostgresql conexionPostgresql = new ConexionPostgresql();
-        aux = conexionPostgresql.mostrar(idcliente);
-        
-        return aux;
-        /**if (idcliente==1)
+        if (idcliente==1)
         {
             Factura[] aux=new Factura[2];
             aux[0]=new Factura("Cessa",154,50.00);
@@ -41,11 +32,11 @@ public class ServidorCessa
             return aux;
         }
         else
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.**/
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
         public String pagar(Factura[] facturas) throws RemoteException {
-            return "SI \n";
+            return "SI";
     }    
     
     

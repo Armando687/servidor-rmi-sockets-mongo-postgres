@@ -18,7 +18,7 @@ public class ConexionPostgresql {
     
     public Factura[] mostrar(int idcliente){
         
-        Factura[] fac = new Factura[3];
+        Factura[] fac = null;
         //Donde se localiza la base de datos
         String url="jdbc:postgresql://localhost:5432/db_cessa";
  
@@ -35,15 +35,15 @@ public class ConexionPostgresql {
             int i = 0;
             st = BaseDatos.createStatement();
             rs = st.executeQuery( "SELECT id, idfactura, monto FROM cessa WHERE id =" + idcliente);
+            int count = 0; 
+            while    ( rs.next() ) { count ++;}fac = new Factura[count];
             while    ( rs.next() ) {
  
                 int id = rs.getInt("id");
                 int idfactura = rs.getInt("idfactura");
                 int monto = rs.getInt("monto");
                 fac[i] = new Factura("Cessa",idfactura,(double)monto);
-                i++;
-                
-                
+                i++;            
             }         
             rs.close();
             st.close();

@@ -18,7 +18,7 @@ public class ConexionPostgresql {
     
     public Factura[] mostrar(int idcliente){
         
-        Factura[] fac = new Factura[2];
+        Factura[] fac = new Factura[3];
         //Donde se localiza la base de datos
         String url="jdbc:postgresql://localhost:5432/db_cessa";
  
